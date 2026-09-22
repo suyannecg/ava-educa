@@ -8,12 +8,12 @@ const invalido = document.getElementById('login-invalido');
 const esqueceuSenha = document.getElementById('esqueceu-senha');
 
 // aviso esqueceu senha
-esqueceuSenha.addEventListener('click', function () {
+esqueceuSenha.addEventListener('click', function() {
  alert('Esta funcionalidade está em construção!')
 });
 
 // inicia validacao usuario
-formulario.addEventListener('submit', function (event) {
+formulario.addEventListener('submit', function(event) {
 
  //impede recarregamento pagina
  event.preventDefault();
