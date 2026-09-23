@@ -8,3 +8,16 @@ nav {
  flex-direction: column;
  width: 190px;
 }
+
+#lista-cursos {
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ gap: 10px;
+}
+
+article {
+ border: 1px solid;
+ padding: 10px;
+ text-align: center;
+}
+

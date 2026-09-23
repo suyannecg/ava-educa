@@ -1,5 +1,35 @@
+import { listarCursos } from "../js/cursos.js"
+
 //recupera dados do usuario
 const usuarioLogado = JSON.parse(sessionStorage.getItem('usuarioLogado'));
+
+//busca e exibe cursos do usuario
+const cursosUsuario = listarCursos(usuarioLogado);
+const listaCursos = document.getElementById('lista-cursos');
+
+//percore cursos encontrados
+for (let i = 0; i < cursosUsuario.length; i++) {
+
+ //cria infos de cursos
+ const card = document.createElement('article');
+
+ const tituloCurso = document.createElement('h2');
+ tituloCurso.textContent = cursosUsuario[i].nomeCurso;
+
+ const inicioCurso = document.createElement('p');
+ inicioCurso.textContent = 'Data de Início: ' + cursosUsuario[i].dataInicio;
+
+ const fimCurso = document.createElement('p');
+ fimCurso.textContent = 'Data de Fim: ' + cursosUsuario[i].dataFim;
+
+ //adiciona informacoes ao card
+ card.appendChild(tituloCurso);
+ card.appendChild(inicioCurso);
+ card.appendChild(fimCurso);
+
+ //adiciona card a lista de cursos
+ listaCursos.appendChild(card);
+}
 
 //mostra nome do usuario no cabecalho
 const nomeUsuario = document.getElementById('nome-usuario');
