@@ -1,4 +1,4 @@
-const alunos = [
+export const alunos = [
   {
     id: 1,
     nome: "Lucas Henrique Martins",
