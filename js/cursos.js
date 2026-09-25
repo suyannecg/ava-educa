@@ -12,7 +12,11 @@ export function listarCursos(usuario) {
   }
  }
 
- //retorna somente cursos do usuario
- return cursosUsuario;
+ //verifica se encontrou cursos
+ if (cursosUsuario.length > 0) {
+  return Promise.resolve(cursosUsuario);
+ } else {
+  return Promise.reject('Não há cursos cadastrados para esse usuário');
+ }
 
 }
