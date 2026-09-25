@@ -4,7 +4,7 @@ import { cadastrarAluno } from "../js/alunos.js"
 //recupera dados usuario
 const usuarioLogado = JSON.parse(sessionStorage.getItem('usuarioLogado'));
 
-//exibe nome do usuario no cabeçalho
+//exibe nome do usuario no cabecalho
 const nomeUsuario = document.getElementById('nome-usuario');
 nomeUsuario.textContent = usuarioLogado.nome;
 
@@ -20,12 +20,13 @@ cadastroAluno.addEventListener('click', function() {
  location.href = "./cadastro-aluno.html";
 });
 
+//recupera campos do formulario
 const campoNome = document.getElementById('nome-completo');
 const campoGenero = document.getElementById('genero');
 const campoCpf = document.getElementById('cpf');
 const campoTelefone = document.getElementById('telefone');
 const campoEmail = document.getElementById('email');
-const campoNumero = document.getElementById('cep');
+const campoNumero = document.getElementById('numero');
 const campoComplemento = document.getElementById('complemento');
 const formularioAluno = document.getElementById('formulario-aluno');
 const campoDataNasc = document.getElementById('data-nasc');
@@ -37,6 +38,8 @@ const campoBairro = document.getElementById('bairro');
 
 formularioAluno.addEventListener('submit', function(event) {
  event.preventDefault();
+
+ //valida data nascimento
  const dataDigitada = campoDataNasc.value;
  const dataNascimento = moment(dataDigitada, 'DD/MM/YYYY', true);
  const dataMinima = moment('01/01/1990', 'DD/MM/YYYY', true);
@@ -49,6 +52,8 @@ formularioAluno.addEventListener('submit', function(event) {
  } else if(!dataNascimento.isBefore(dataAtual)) {
   alert('A data deve ser menor que a data atual!')
  } else {
+
+  //cria aluno com dados do formulario
   const aluno = new Aluno(
     campoNome.value,
     campoGenero.value,
@@ -65,6 +70,7 @@ formularioAluno.addEventListener('submit', function(event) {
     campoBairro.value
   )
 
+  //cadastra aluno
   cadastrarAluno(aluno)
     .then(function(sucesso) {
       alert(sucesso);
@@ -76,6 +82,7 @@ formularioAluno.addEventListener('submit', function(event) {
  }
 });
 
+//busca endereco pelo cep
 campoCep.addEventListener('blur', function() {
  const cepDigitado = campoCep.value;
  const url = "https://viacep.com.br/ws/" + cepDigitado + "/json/";
@@ -84,6 +91,8 @@ campoCep.addEventListener('blur', function() {
    return resposta.json();
  })
   .then(function(dados) {
+
+    //preenche campos endereco
    campoCidade.value = dados.localidade;
    campoEstado.value = dados.uf;
    campoLogradouro.value = dados.logradouro;

@@ -1,4 +1,6 @@
 export class Aluno {
+
+ //inicializa os dados do aluno
  constructor(nome, genero, dataNascimento, cpf, telefone, email, cep, cidade, estado, logradouro, numero, complemento, bairro) {
   this.nome = nome;
   this.genero = genero;
