@@ -21,18 +21,17 @@ formulario.addEventListener('submit', function(event) {
  const emailDigitado = campoEmail.value;
  const senhaDigitada = campoSenha.value;
 
- //verifica cadastro atraves de dados informados
- const resultado = login(emailDigitado, senhaDigitada);
-
- if (resultado !== false) {
-
-  //guarda dados do usuario durante sessao
-  sessionStorage.setItem('usuarioLogado', JSON.stringify(resultado));
+ //verifica dados informados
+ login(emailDigitado, senhaDigitada)
+  .then(function(usuario) {
+   //guarda dados do usuario durante sessao
+  sessionStorage.setItem('usuarioLogado', JSON.stringify(usuario));
   
   //encaminha usuario para dashboard
   location.href = "../dashboard/dashboard.html";
-
- } else {
-  invalido.textContent = 'Dados incorretos. Verifique e tente novamente.'
- }
+  })
+  .catch(function(erro) {
+   invalido.textContent = erro;
+  });
+  
 })
