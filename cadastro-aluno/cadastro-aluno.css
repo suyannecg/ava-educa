@@ -7,4 +7,21 @@ nav {
  display: flex;
  flex-direction: column;
  width: 190px;
+} 
+
+#formulario-aluno {
+ display:flex;
+ flex-direction: column;
+ gap: 6px;
+ width: 80%;
+ max-width: 400px;
+}
+
+@media (max-width: 768px) {
+ header {
+  flex-direction: column;
+ }
+ nav {
+  width: 100%;
+ }
 }

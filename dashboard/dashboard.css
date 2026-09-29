@@ -21,3 +21,14 @@ article {
  text-align: center;
 }
 
+@media (max-width: 768px) {
+ #lista-cursos {
+  grid-template-columns: 1fr;
+ }
+ header {
+   flex-direction: column;
+  }
+  nav {
+   width: 100%;
+  }
+}

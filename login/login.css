@@ -1,0 +1,7 @@
+#formulario-login {
+ display:flex;
+ flex-direction: column;
+ gap: 8px;
+ width: 80%;
+ max-width: 500px;
+}
