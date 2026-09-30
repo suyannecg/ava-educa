@@ -41,16 +41,16 @@
    <input type="text" name="dataNasc" id="data-nasc" placeholder="DD/MM/YYYY" required>
    
    <label for="cpf">CPF:</label>
-   <input type="text" name="cpf" id="cpf" required>
+   <input type="text" name="cpf" id="cpf" required pattern="[0-9]+">
 
    <label for="telefone">Telefone:</label>
-   <input type="text" name="telefone" id="telefone" required>
+   <input type="text" name="telefone" id="telefone" required pattern="[0-9]+">
 
    <label for="email">E-mail</label>
    <input type="email" name="email" id="email" required>
 
    <label for="cep">CEP:</label>
-   <input type="text" name="cep" id="cep">
+   <input type="text" name="cep" id="cep" required pattern="[0-9]{8}">
 
    <label for="cidade">Cidade:</label>
    <input type="text" name="cidade" id="cidade">
@@ -62,7 +62,7 @@
    <input type="text" name="logradouro" id="logradouro">
 
    <label for="numero">Número:</label>
-   <input type="text" name="numero" id="numero">
+   <input type="text" name="numero" id="numero" pattern="([0-9]+|[Ss]/?[Nn])">
 
    <label for="complemento">Complemento:</label>
    <input type="text" name="complemento" id="complemento">
