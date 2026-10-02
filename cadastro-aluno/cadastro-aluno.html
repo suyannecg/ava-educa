@@ -24,7 +24,9 @@
   </nav>
 
   <main>
-   <form id="formulario-aluno">
+   <div class="area-cadastro">
+    <h2>Cadastro de Aluno</h2>
+    <form id="formulario-aluno">
 
     <label for="nome-completo">Nome Completo:</label>
     <input type="text" name="nomeCompleto" id="nome-completo" required minlength="4" maxlength="80">
@@ -73,9 +75,10 @@
 
     <button type="submit">Salvar</button>
    </form>
+   </div>
   </main>
  </div>
-
+ 
  <script type="module" src="./cadastro-aluno.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
 </body>
