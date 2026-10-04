@@ -82,6 +82,6 @@ ava-educa/
 - Implementar um sistema de autenticação e validações mais completo.
 
 ## Links importantes
-1. Vídeo:
+1. [Vídeo Google Drive](https://drive.google.com/file/d/1ttv5VZAoI1naRBrrdebFjMxLYgRqN7wQ/view?usp=sharing)
 2. [Kanban com Trello](https://trello.com/b/dJZTMuqx/projeto-final-sctec)
 
