@@ -91,6 +91,15 @@ main {
   cursor: pointer;
 }
 
+#mensagem-cep {
+  color: red;
+  margin: 0;
+}
+
+#mensagem-cep:empty {
+  display: none;
+}
+
 @media (max-width: 768px) {
  header {
   flex-direction: column;
