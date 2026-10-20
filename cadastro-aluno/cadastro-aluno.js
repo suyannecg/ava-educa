@@ -31,6 +31,7 @@ const campoComplemento = document.getElementById('complemento');
 const formularioAluno = document.getElementById('formulario-aluno');
 const campoDataNasc = document.getElementById('data-nasc');
 const campoCep = document.getElementById('cep');
+const erroCep = document.getElementById('mensagem-cep')
 const campoCidade = document.getElementById('cidade');
 const campoEstado = document.getElementById('estado');
 const campoLogradouro = document.getElementById('logradouro');
@@ -79,6 +80,7 @@ formularioAluno.addEventListener('submit', function(event) {
     .catch(function(erro) {
       alert(erro);
     });
+  
  }
 });
 
@@ -92,12 +94,38 @@ campoCep.addEventListener('blur', function() {
  })
   .then(function(dados) {
 
+    console.log(dados); //TEMPORARIO
+
+    if(dados.erro) {
+      erroCep.textContent = 'CEP não encontrado. Verifique o número informado';
+
+      //limpa campos endereco
+      campoCidade.value = '';
+      campoEstado.value = '';
+      campoLogradouro.value = '';
+      campoBairro.value = '';
+
+      return;
+    }
+
+    erroCep.textContent = '';
+
     //preenche campos endereco
-   campoCidade.value = dados.localidade;
-   campoEstado.value = dados.uf;
-   campoLogradouro.value = dados.logradouro;
-   campoBairro.value = dados.bairro;
-  });
+    campoCidade.value = dados.localidade;
+    campoEstado.value = dados.uf;
+    campoLogradouro.value = dados.logradouro;
+    campoBairro.value = dados.bairro;
+  })
+
+  .catch(function(erro) {
+      erroCep.textContent = 'Não foi possível consultar o CEP. Tente novamente.';
+      
+      //limpa campos endereco
+      campoCidade.value = '';
+      campoEstado.value = '';
+      campoLogradouro.value = '';
+      campoBairro.value = '';
+    });
 })
 
 //encerra sessao e retorna para login
